@@ -1,0 +1,45 @@
+{
+  "name": "deno-astro-adapter",
+  "description": "Deploy your site to a Deno server",
+  "version": "4.2.0",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "author": "Kevin Whinnery and Astro Contributors",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kwhinnery/deno-astro-adapter.git"
+  },
+  "keywords": [
+    "withastro",
+    "astro-adapter"
+  ],
+  "bugs": "https://github.com/kwhinnery/deno-astro-adapter/issues",
+  "homepage": "https://docs.astro.build/en/guides/integrations-guide/deno/",
+  "exports": {
+    ".": "./dist/index.js",
+    "./server.js": "./dist/server.js",
+    "./__deno_imports.js": "./dist/__deno_imports.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "esbuild": "^0.15.18"
+  },
+  "peerDependencies": {
+    "astro": "^2.6.5"
+  },
+  "devDependencies": {
+    "astro": "2.6.5",
+    "astro-scripts": "0.0.14"
+  },
+  "scripts": {
+    "build": "astro-scripts build \"src/**/*.ts\" && tsc",
+    "build:ci": "astro-scripts build \"src/**/*.ts\"",
+    "dev": "astro-scripts dev \"src/**/*.ts\"",
+    "test": "deno test --allow-run --allow-env --allow-read --allow-net ./test/"
+  }
+}
